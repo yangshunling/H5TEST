@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.scwang.wave.MultiWaveHeader
+        android:id="@+id/waveHeader"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleY="1"
+
+        app:mwhCloseColor="@color/app_color"
+        app:mwhColorAlpha="0.45"
+        app:mwhGradientAngle="60"
+        app:mwhIsRunning="true"
+        app:mwhProgress="1"
+        app:mwhStartColor="@color/app_color"
+        app:mwhVelocity="1"
+        app:mwhWaveHeight="50dp"
+        app:mwhWaves="MultiWave" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:hint="请输入网页地址"
+            android:text="file:android_asset/index.html"
+            app:met_baseColor="@color/app_color"
+            app:met_clearButton="true"
+            app:met_primaryColor="@color/app_color"
+            app:met_singleLineEllipsis="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <com.came.viewbguilib.ButtonBgUi
+                android:id="@+id/normal"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:text="WEB"
+                android:textColor="@color/white"
+                android:textSize="25dp"
+                app:defaultColor="@color/app_color"
+                app:isRipple="true"
+                app:pressedColor="@color/design_default_color_primary"
+                app:raoundRadius="100dp" />
+
+            <com.came.viewbguilib.ButtonBgUi
+                android:id="@+id/x5"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:text="X5"
+                android:textColor="@color/white"
+                android:textSize="30dp"
+                app:defaultColor="@color/design_default_color_primary"
+                app:isRipple="true"
+                app:pressedColor="@color/app_color"
+                app:raoundRadius="100dp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

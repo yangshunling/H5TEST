@@ -1,0 +1,41 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        applicationId "com.example.h5test"
+        minSdkVersion 16
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'com.google.android.material:material:1.0.0-rc01'
+    implementation 'com.tencent.tbs.tbssdk:sdk:43939'
+    implementation 'com.scwang.wave:MultiWaveHeader:1.0.0-andx'
+    implementation 'pub.devrel:easypermissions:3.0.0'
+    implementation 'com.rengwuxian.materialedittext:library:2.1.4'
+    implementation 'com.github.castorflex.smoothprogressbar:library:1.1.0'
+    implementation 'com.github.castorflex.smoothprogressbar:library-circular:1.1.0'
+    implementation 'com.gyf.immersionbar:immersionbar:3.0.0'
+    implementation 'com.github.ithedan:CustomViewBgUi:v1.0'
+    implementation 'com.github.wendux:DSBridge-Android:3.0-SNAPSHOT'
+    implementation 'com.github.wendux:DSBridge-Android:x5-3.0-SNAPSHOT'
+    implementation 'com.google.code.gson:gson:2.8.6'
+}
