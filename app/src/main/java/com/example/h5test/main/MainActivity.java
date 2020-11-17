@@ -23,7 +23,6 @@ public class MainActivity extends BaseActivity implements EasyPermissions.Permis
 
     private ButtonBgUi mNormal;
     private ButtonBgUi mX5;
-    private MultiWaveHeader mWaveHeader;
     private MaterialEditText mAddress;
     private String[] perms = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
@@ -41,7 +40,6 @@ public class MainActivity extends BaseActivity implements EasyPermissions.Permis
         mNormal = findViewById(R.id.normal);
         mX5 = findViewById(R.id.x5);
         mAddress = findViewById(R.id.address);
-        mWaveHeader = findViewById(R.id.waveHeader);
     }
 
     private void setLisitener() {
