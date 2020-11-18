@@ -5,7 +5,6 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, target-densitydpi=360">
     <title>JSBridge测试网页</title>
-    <!--    <script src="./dsbridge.js"> </script>-->
     <script src="./dsbridge.js"></script>
 </head>
 <body style="background-color: #009688">
@@ -17,15 +16,21 @@
        background-color:#6495ed"
            value="向Android传参"
            onclick="senMessage()"/>
-    <div id="main"></div>
+    <div id="main" style="color:white"></div>
 
 </div>
 <script>
 
-    dsBridge.register('FromAndroid', function (value) {
-        alert(value)
-        return "已收到，我是JS返回的消息";
+    dsBridge.register('fromAndroid', function (value) {
+        document.getElementById("main").innerText = "接收到Android的消息:\n" + value
+        return "我是JS返回的消息";
     })
+
+    function senMessage() {
+        dsBridge.call("fromJS","你好，我是JS，以后请多多指教!", function (value) {
+            document.getElementById("main").innerText = "接受到Android的返回消息:\n" + value
+        })
+    }
 
 
 

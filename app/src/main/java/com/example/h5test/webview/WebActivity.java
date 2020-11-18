@@ -48,12 +48,10 @@ public class WebActivity extends BaseActivity {
         mSendMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                HashMap<String, String> map = new HashMap<>();
-                map.put("name", "yangsl");
-                mWebView.callHandler("FromAndroid", new Object[]{"我是Android发出的消息"}, new OnReturnValue<String>() {
+                mWebView.callHandler("fromAndroid", new Object[]{"你好，我是Android，以后请多多指教!"}, new OnReturnValue<String>() {
                     @Override
                     public void onValue(String retValue) {
-                        Toast.makeText(WebActivity.this, retValue, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(WebActivity.this, "接受到JS的返回消息:" + retValue, Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -63,7 +61,7 @@ public class WebActivity extends BaseActivity {
     private void initWebview() {
         //开启调试模式
         mWebView.setWebContentsDebuggingEnabled(true);
-        mWebView.addJavascriptInterface(new JsBridgeApi(), "JSBridge");
+        mWebView.addJavascriptObject(new JsBridgeApi(), null);
         WebSettings mWebSettings = mWebView.getSettings();
         //与Javascript交互
         mWebSettings.setJavaScriptEnabled(true);
