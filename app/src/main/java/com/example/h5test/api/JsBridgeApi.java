@@ -1,7 +1,8 @@
 package com.example.h5test.api;
 
-import android.util.Log;
 import android.webkit.JavascriptInterface;
+
+import com.example.h5test.callback.JSCallback;
 
 import wendu.dsbridge.CompletionHandler;
 
@@ -12,10 +13,15 @@ import wendu.dsbridge.CompletionHandler;
  */
 public class JsBridgeApi {
 
-    //用于同步调用
-    @JavascriptInterface
-    public void fromJS(Object msg, CompletionHandler<String> handler){
-        Log.v("TAG", msg.toString());
-        handler.complete("我是Android返回的消息");
+    private JSCallback mCallback;
+
+    public JsBridgeApi(JSCallback callback) {
+        mCallback = callback;
     }
+
+    @JavascriptInterface
+    public void getVersionCode(Object msg, CompletionHandler<String> handler) {
+        mCallback.getVersionCode(handler);
+    }
+
 }

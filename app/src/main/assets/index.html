@@ -14,8 +14,9 @@
        width:100px;
        height:50px;
        background-color:#6495ed"
-           value="向Android传参"
+           value="获取版本号"
            onclick="senMessage()"/>
+
     <div id="main" style="color:white"></div>
 
 </div>
@@ -27,11 +28,10 @@
     })
 
     function senMessage() {
-        dsBridge.call("fromJS","你好，我是JS，以后请多多指教!", function (value) {
-            document.getElementById("main").innerText = "接受到Android的返回消息:\n" + value
+        dsBridge.call("getVersionCode", null, function (value) {
+            alert(value)
         })
     }
-
 
 
 </script>

@@ -12,13 +12,16 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.h5test.R;
+import com.example.h5test.callback.JSCallback;
 import com.example.h5test.main.BaseActivity;
 import com.example.h5test.api.JsBridgeApi;
+import com.example.h5test.main.MainActivity;
 
 import java.util.HashMap;
 
 import androidx.annotation.Nullable;
 import fr.castorflex.android.smoothprogressbar.SmoothProgressBar;
+import wendu.dsbridge.CompletionHandler;
 import wendu.dsbridge.DWebView;
 import wendu.dsbridge.OnReturnValue;
 
@@ -27,7 +30,7 @@ import wendu.dsbridge.OnReturnValue;
  * @Author: Anonymous
  * @Time: 2020/9/17 0:01
  */
-public class WebActivity extends BaseActivity {
+public class WebActivity extends BaseActivity implements JSCallback {
 
     private SmoothProgressBar mProgressbar;
     private DWebView mWebView;
@@ -42,6 +45,7 @@ public class WebActivity extends BaseActivity {
     }
 
     private void initView() {
+
         mWebView = findViewById(R.id.webview);
         mProgressbar = findViewById(R.id.progressbar);
         mSendMessage = findViewById(R.id.sendMessage);
@@ -61,7 +65,7 @@ public class WebActivity extends BaseActivity {
     private void initWebview() {
         //开启调试模式
         mWebView.setWebContentsDebuggingEnabled(true);
-        mWebView.addJavascriptObject(new JsBridgeApi(), null);
+        mWebView.addJavascriptObject(new JsBridgeApi(this), null);
         WebSettings mWebSettings = mWebView.getSettings();
         //与Javascript交互
         mWebSettings.setJavaScriptEnabled(true);
@@ -150,5 +154,10 @@ public class WebActivity extends BaseActivity {
             return true;
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public void getVersionCode(CompletionHandler<String> handler) {
+        handler.complete("1.0.2");
     }
 }
